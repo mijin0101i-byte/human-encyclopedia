@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>展示案内 | 人間図鑑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;color:#222;background:#fff;font-family:"Noto Serif JP",serif;line-height:2;letter-spacing:.05em}
+a{color:inherit;text-decoration:none}
+header{height:88px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dedbd5;position:sticky;top:0;background:#fff;z-index:5}
+.logo{font-size:21px;letter-spacing:.15em;line-height:1.3}
+.logo small{display:block;font-family:Georgia,serif;font-size:9px;letter-spacing:.2em}
+nav{display:flex;gap:25px}
+nav a{font-size:11px}
+nav a:hover{opacity:.5}
+.hero{text-align:center;padding:100px 20px 85px;border-bottom:1px solid #ddd}
+.en,.label{font-family:Georgia,serif;font-size:11px;letter-spacing:.25em;color:#888}
+h1{font-weight:400;font-size:42px;letter-spacing:.18em;margin:15px 0}
+.lead{font-size:14px;color:#777}
+section{padding:90px 9%}
+.inner{max-width:1000px;margin:auto}
+.space-intro{background:#f7f6f3}
+.space-number{font-family:Georgia,serif;font-size:13px;letter-spacing:.2em;color:#888}
+h2{font-size:32px;font-weight:400;letter-spacing:.13em;margin:10px 0 25px}
+.intro-text{font-size:14px;max-width:750px;line-height:2.5}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:45px}
+.feature{border:1px solid #ddd;padding:25px;background:#fff}
+.feature h3{font-size:16px;font-weight:400;margin:0 0 12px}
+.feature p{font-size:12px;color:#777;margin:0;line-height:2.2}
+.story{padding:90px 9%}
+.story-layout{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.story-visual{background:#252525;color:#fff;min-height:310px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
+.story-visual .placeholder{font-family:Georgia,serif;letter-spacing:.2em;font-size:12px;color:#bbb}
+.story-visual strong{display:block;font-size:25px;font-weight:400;letter-spacing:.15em;margin:18px 0}
+.story-copy p{font-size:13px;color:#666;line-height:2.4}
+.story-copy h3{font-size:22px;font-weight:400}
+.story-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:35px}
+.story-step{padding:20px;background:#f7f6f3}
+.story-step span{font-family:Georgia,serif;color:#999;font-size:11px}
+.story-step h4{font-weight:400;font-size:15px;margin:5px 0}
+.story-step p{font-size:12px;color:#777;margin:0}
+.sample{background:#f7f6f3}
+.sample-card{background:white;border:1px solid #ddd;padding:35px;margin-top:35px}
+.sample-title{font-family:Georgia,serif;font-size:11px;letter-spacing:.2em;color:#888}
+.sample-card h3{font-size:25px;font-weight:400;margin:10px 0}
+.sample-card p{font-size:13px;color:#666;line-height:2.4}
+.video-placeholder{margin-top:25px;background:#222;color:#fff;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center}
+.video-placeholder span{font-family:Georgia,serif;font-size:12px;letter-spacing:.2em;color:#ccc}
+.diagnosis{background:#292929;color:#fff}
+.diagnosis .label,.diagnosis .space-number{color:#bbb}
+.diagnosis .intro-text{color:#ccc}
+.diagnosis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.diagnosis-item{border:1px solid #666;padding:25px 20px}
+.diagnosis-item span{font-family:Georgia,serif;color:#aaa;font-size:11px}
+.diagnosis-item h3{font-size:17px;font-weight:400;margin:10px 0}
+.diagnosis-item p{font-size:12px;color:#ccc;margin:0}
+.steps{margin-top:45px;border-top:1px solid #666}
+.step-row{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid #666}
+.step-row span{font-family:Georgia,serif;color:#aaa;font-size:12px}
+.step-row p{font-size:13px;margin:0}
+.book{background:#f7f6f3;color:#222;padding:90px 9%}
+.book-inner{max-width:850px;margin:auto;text-align:center}
+.book-visual{margin:35px auto 25px;padding:45px 25px;border:1px solid #bbb;background:#fff;max-width:500px}
+.book-visual .book-en{font-family:Georgia,serif;font-size:11px;letter-spacing:.2em;color:#888}
+.book-visual h3{font-size:30px;font-weight:400;letter-spacing:.12em;margin:15px 0}
+.book-visual p{font-size:12px;color:#888}
+.book-copy{font-size:13px;color:#666;max-width:650px;margin:auto}
+.takeaway{text-align:center}
+.takeaway h2{font-size:27px}
+.takeaway p{font-size:14px;color:#666}
+footer{padding:40px 7%;border-top:1px solid #ddd;display:flex;justify-content:space-between;align-items:end}
+footer small{font-size:10px;color:#888}
+@media(max-width:800px){
+header{height:auto;min-height:75px;align-items:flex-start;padding:20px 6%;gap:15px;flex-direction:column}
+nav{flex-wrap:wrap;gap:12px}
+nav a{font-size:10px}
+section,.story,.book{padding:70px 7%}
+h1{font-size:32px}
+.feature-grid,.story-layout{grid-template-columns:1fr}
+.story-steps{grid-template-columns:1fr}
+.diagnosis-grid{grid-template-columns:1fr}
+.step-row{grid-template-columns:75px 1fr}
+footer{gap:15px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html">人間図鑑<small>THE HUMAN ENCYCLOPEDIA</small></a>
+<nav>
+<a href="index.html">HOME</a>
+<a href="about.html">展覧会について</a>
+<a href="guide.html">展示案内</a>
+<a href="archive.html">人物アーカイブ</a>
+<a href="entry.html">展示参加者募集</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="en">EXHIBITION GUIDE</div>
+<h1>展示案内</h1>
+<div class="lead">他人を知る。そして、自分を知る。</div>
+</div>
+
+<section class="space-intro" id="space01">
+<div class="inner">
+<div class="space-number">SPACE 01</div>
+<h2>他人を知る</h2>
+<div class="intro-text">
+誰かの人生を、約10分のドキュメンタリーとして展示します。年齢や職業、これまでの経験も異なる人たち。それぞれが歩んできた人生を、映像を通して知ることができます。<br><br>
+特別な功績や才能だけではなく、日々の暮らしや何気ない会話、大切な人との関係、心に残っている出来事。普段は知る機会のない、一人ひとりの人生に触れてみてください。
+</div>
+<div class="feature-grid">
+<div class="feature"><h3>01｜一人ひとりの人生を映像に</h3><p>参加者それぞれの人生を、約10分のドキュメンタリーにします。</p></div>
+<div class="feature"><h3>02｜日常の風景を記録</h3><p>インタビューだけでなく、普段の生活や家族・友人との時間も撮影します。</p></div>
+<div class="feature"><h3>03｜周囲の人から見た姿</h3><p>本人だけでなく、家族や友人の言葉も通して、その人のさまざまな一面を描きます。</p></div>
+<div class="feature"><h3>04｜自由に選んで鑑賞</h3><p>会場には複数のモニターを設置。来場者が気になる人生を自由に選んで鑑賞できます。</p></div>
+</div>
+</div>
+</section>
+
+<section class="story">
+<div class="inner">
+<div class="label">DOCUMENTARY</div>
+<h2>人生を、ひとつの物語に。</h2>
+<div class="story-layout">
+<div class="story-copy">
+<h3>その人が、どんな人なのか。</h3>
+<p>人生の出来事を時系列に並べるだけではなく、その人が何を考え、何を大切にし、どんな気持ちで日々を過ごしているのかを映像に残します。</p>
+<p>うれしかったことも、苦しかったことも、何気ない日常も。人生の一部分だけではなく、その人らしさが伝わる10分間をつくります。</p>
+</div>
+<div class="story-visual">
+<div>
+<div class="placeholder">A LIFE, A STORY</div>
+<strong>誰かの人生に、出会う。</strong>
+<div class="placeholder">DOCUMENTARY FILM</div>
+</div>
+</div>
+</div>
+<div class="story-steps">
+<div class="story-step"><span>01 / ORIGIN</span><h4>その人の原点</h4><p>幼少期、家族、育った環境。</p></div>
+<div class="story-step"><span>02 / TURNING POINT</span><h4>その人を形づくった出来事</h4><p>人生の転機、忘れられない経験。</p></div>
+<div class="story-step"><span>03 / INNER WORLD</span><h4>その人の内面</h4><p>価値観、こだわり、幸せを感じる瞬間。</p></div>
+<div class="story-step"><span>04 / NOW & FUTURE</span><h4>その人の今とこれから</h4><p>現在の暮らし、将来の夢や考え。</p></div>
+</div>
+</div>
+</section>
+
+<section class="sample">
+<div class="inner">
+<div class="label">EXHIBITION SAMPLE</div>
+<h2>ドキュメンタリー展示例</h2>
+<p class="intro-text">実際にどのような映像が展示されるのか。企画者自身の人生を題材にしたサンプルをご紹介します。</p>
+<div class="sample-card">
+<div class="sample-title">DOCUMENTARY 001</div>
+<h3>及川実星｜私をつくってきたもの</h3>
+<p>福島で育った幼少期から、音楽との出会い、大学での挑戦、日常の音を使った楽曲制作まで。これまでの経験や人との出会いを通して、今の自分がどのようにつくられてきたのかを描くドキュメンタリーです。</p>
+<div class="video-placeholder">
+<span>YOUR DOCUMENTARY MOVIE WILL BE INSERTED HERE</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="diagnosis" id="space02">
+<div class="inner">
+<div class="space-number">SPACE 02</div>
+<h2>自分を知る</h2>
+<div class="intro-text">
+今度は、自分自身に目を向けてみましょう。専用の診断ブースでいくつかの質問に答えると、AIが回答を分析。自分では気づいていなかった性格や価値観、思考の傾向を見つけるきっかけをつくります。
+</div>
+<div class="diagnosis-grid">
+<div class="diagnosis-item"><span>DIAGNOSIS 01</span><h3>性格診断</h3><p>自分の性格や行動の傾向を知る。</p></div>
+<div class="diagnosis-item"><span>DIAGNOSIS 02</span><h3>価値観診断</h3><p>自分が大切にしていることを見つめる。</p></div>
+<div class="diagnosis-item"><span>DIAGNOSIS 03</span><h3>恋愛傾向診断</h3><p>人との関わり方や恋愛での傾向を知る。</p></div>
+<div class="diagnosis-item"><span>DIAGNOSIS 04</span><h3>思考パターン診断</h3><p>物事をどのように捉え、考えるのかを知る。</p></div>
+<div class="diagnosis-item"><span>DIAGNOSIS 05</span><h3>潜在的な興味診断</h3><p>自分でも意識していなかった興味の方向を探る。</p></div>
+</div>
+<div class="steps">
+<div class="step-row"><span>STEP 01</span><p>専用ブースで、さまざまな質問に回答する。</p></div>
+<div class="step-row"><span>STEP 02</span><p>AIが回答を分析し、それぞれの診断結果を表示する。</p></div>
+<div class="step-row"><span>STEP 03</span><p>複数の診断結果を組み合わせ、自分だけの人物図鑑が完成する。</p></div>
+</div>
+</div>
+</section>
+
+<section class="book">
+<div class="book-inner">
+<div class="label">MY HUMAN ENCYCLOPEDIA</div>
+<h2>あなた自身の、人物図鑑。</h2>
+<div class="book-visual">
+<div class="book-en">MY HUMAN ENCYCLOPEDIA</div>
+<h3>私という人間。</h3>
+<p>PERSONAL PROFILE / YOUR STORY</p>
+</div>
+<div class="book-copy">
+性格、価値観、思考の傾向、意外な一面。複数の診断結果を一冊の人物図鑑のようにまとめます。完成した図鑑は、QRコードからスマートフォンで閲覧・保存できるほか、会場でプロフィールカードとして印刷することもできます。<br><br>
+診断結果は自分を決めつけるものではなく、新しい自分に出会うためのヒントです。
+</div>
+</div>
+</section>
+
+<section class="takeaway">
+<div class="inner">
+<div class="label">TWO PERSPECTIVES</div>
+<h2>他人を知ること。自分を知ること。</h2>
+<p>誰かの人生に触れることで、自分の知らない世界が広がる。<br>自分自身を見つめることで、これまで気づかなかった自分に出会う。</p>
+</div>
+</section>
+
+<footer>
+<a class="logo" href="index.html">人間図鑑<small>THE HUMAN ENCYCLOPEDIA</small></a>
+<small>© THE HUMAN ENCYCLOPEDIA</small>
+</footer>
+</body>
+</html>
