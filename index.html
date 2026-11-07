@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人間図鑑 | THE HUMAN ENCYCLOPEDIA</title>
+<meta name="description" content="誰もが人生の主人公です。人間図鑑は、一人ひとりの人生と感性に出会う展覧会です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #222;
+  --muted: #777;
+  --line: #dedbd5;
+  --paper: #fff;
+  --soft: #f7f6f3;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Noto Serif JP", serif;
+  line-height: 1.9;
+  letter-spacing: .045em;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  height: 88px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.96);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { line-height: 1.35; white-space: nowrap; }
+.logo-jp { font-size: 22px; letter-spacing: .16em; }
+.logo-en { display: block; font-family: Georgia,serif; font-size: 9px; letter-spacing: .2em; }
+nav { display: flex; gap: 27px; align-items: center; }
+nav a { font-size: 11px; letter-spacing: .08em; transition: opacity .2s; }
+nav a:hover { opacity: .5; }
+.menu-button { display: none; border: 0; background: none; font: inherit; font-size: 12px; }
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: #aaa;
+  left: 50%;
+}
+.hero::before { top: 0; }
+.hero::after { bottom: 0; }
+.hero-kicker { font-family: Georgia,serif; font-size: 11px; letter-spacing: .28em; color: var(--muted); }
+.hero h1 { font-size: clamp(42px, 7vw, 78px); font-weight: 400; letter-spacing: .2em; margin: 24px 0 12px; }
+.hero-en { font-family: Georgia,serif; font-size: 12px; letter-spacing: .3em; color: var(--muted); }
+.hero-message { font-size: clamp(16px, 2vw, 20px); letter-spacing: .16em; margin-top: 52px; }
+.hero-sub { font-size: 12px; color: var(--muted); margin-top: 10px; }
+.section { padding: 110px 9%; }
+.section-inner { max-width: 1000px; margin: auto; }
+.section-label { font-family: Georgia,serif; font-size: 11px; letter-spacing: .25em; color: var(--muted); }
+.section-title { font-size: 30px; font-weight: 400; letter-spacing: .13em; margin: 12px 0 42px; }
+.origin { background: var(--soft); }
+.origin-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: start; }
+.origin-heading { font-size: 28px; font-weight: 400; line-height: 2; letter-spacing: .12em; }
+.origin-copy { font-size: 14px; line-height: 2.5; }
+.signature { text-align: right; margin-top: 30px; font-size: 12px; }
+.concept { text-align: center; }
+.concept-main { font-size: clamp(27px, 4vw, 42px); font-weight: 400; letter-spacing: .16em; margin: 15px 0 25px; }
+.concept-sub { font-size: 17px; letter-spacing: .12em; margin-bottom: 45px; }
+.concept-copy { max-width: 700px; margin: auto; font-size: 14px; line-height: 2.6; text-align: left; }
+.concept-note { margin-top: 50px; font-size: 13px; color: var(--muted); }
+.spaces { background: var(--soft); }
+.space-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.space-card { background: white; padding: 45px 38px; border: 1px solid var(--line); min-height: 260px; }
+.space-number { font-family: Georgia,serif; font-size: 12px; letter-spacing: .2em; color: var(--muted); }
+.space-card h3 { font-weight: 400; font-size: 24px; letter-spacing: .13em; margin: 18px 0; }
+.space-card p { font-size: 13px; color: #666; line-height: 2.2; }
+.text-link { display: inline-block; margin-top: 20px; font-family: Georgia,serif; font-size: 10px; letter-spacing: .2em; border-bottom: 1px solid #999; padding-bottom: 5px; }
+.archive { text-align: center; }
+.archive-box { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 45px 20px; margin-top: 35px; }
+.archive-box p { font-size: 14px; color: var(--muted); }
+.entry { background: #292929; color: white; text-align: center; }
+.entry .section-label { color: #bbb; }
+.entry h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 400; letter-spacing: .12em; margin: 25px 0; }
+.entry p { font-size: 13px; color: #ccc; }
+.entry-link { display: inline-block; margin-top: 35px; border: 1px solid #aaa; padding: 13px 35px; font-size: 12px; letter-spacing: .12em; transition: .2s; }
+.entry-link:hover { background: white; color: #222; }
+footer { padding: 45px 7%; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: end; }
+footer .logo-jp { font-size: 18px; }
+footer small { color: var(--muted); font-size: 10px; }
+@media(max-width: 850px) {
+  header { height: 75px; }
+  nav { display: none; position: absolute; top: 75px; left: 0; right: 0; background: white; padding: 25px 7%; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 15px; }
+  nav.open { display: flex; }
+  .menu-button { display: block; }
+  .origin-grid { grid-template-columns: 1fr; gap: 25px; }
+  .space-grid { grid-template-columns: 1fr; }
+  .section { padding: 80px 7%; }
+  .hero { min-height: 570px; }
+  footer { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html">
+    <span class="logo-jp">人間図鑑</span>
+    <span class="logo-en">THE HUMAN ENCYCLOPEDIA</span>
+  </a>
+  <button class="menu-button" onclick="document.querySelector('nav').classList.toggle('open')">MENU ☰</button>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="about.html">展覧会について</a>
+    <a href="guide.html">展示案内</a>
+    <a href="archive.html">人物アーカイブ</a>
+    <a href="entry.html">展示参加者募集</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <div class="hero-kicker">AN EXHIBITION ABOUT PEOPLE</div>
+    <h1>人間図鑑</h1>
+    <div class="hero-en">THE HUMAN ENCYCLOPEDIA</div>
+    <div class="hero-message">誰もが人生の主人公です。</div>
+    <div class="hero-sub">誰かの普通は、誰かの物語。</div>
+  </div>
+</section>
+
+<section class="section origin">
+  <div class="section-inner">
+    <div class="origin-grid">
+      <div>
+        <div class="section-label">THE ORIGIN OF THE EXHIBITION</div>
+        <h2 class="origin-heading">私の偏愛は、<br>「人間観察」。</h2>
+      </div>
+      <div class="origin-copy">
+        私の偏愛を一言で表すと、人間観察です。私は、人の人生や、その人が何を考え、何に心を動かされているのかを知ることが好きです。ドキュメンタリーを見たり、人の話を聞いたりする中で自分とは異なる価値観や感性に触れることに惹かれてきました。もともと物事を深く掘り下げることが好きで、何気ない言葉や行動の裏側にある理由まで想像してしまいます。自分にとって当たり前ではない考え方を知るたびに、世の中にはこんなにも多様な人がいるのだと気づかされてきました。
+        <div class="signature">企画者｜及川実星</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section concept">
+  <div class="section-inner">
+    <div class="section-label">EXHIBITION CONCEPT</div>
+    <h2 class="concept-main">誰もが人生の主人公です。</h2>
+    <div class="concept-sub">誰かの普通は、誰かの物語。</div>
+    <div class="concept-copy">
+      誰もがそれぞれの人生を歩み、異なる価値観やこだわりを持っている。特別な功績や才能がなくても、一人ひとりの人生には、その人にしかない物語がある。<br><br>
+      本展では、さまざまな人の人生や感性を展示するとともに、AIによって来場者自身も知らなかった一面を可視化する。人の物語に触れ、自分の物語にも目を向けることで、誰もがかけがえのない存在であることを感じられる展覧会を目指す。
+    </div>
+    <div class="concept-note">人生に、展示する価値のない人なんていない。</div>
+    <a class="text-link" href="about.html">ABOUT THE EXHIBITION　→</a>
+  </div>
+</section>
+
+<section class="section spaces">
+  <div class="section-inner">
+    <div class="section-label">EXHIBITION GUIDE</div>
+    <h2 class="section-title">展示案内</h2>
+    <div class="space-grid">
+      <article class="space-card">
+        <div class="space-number">SPACE 01</div>
+        <h3>他人を知る</h3>
+        <p>誰かの人生を、約10分のドキュメンタリーとして展示します。何気ない日常や大切な人との関係、その人が歩んできた物語に触れてみてください。</p>
+        <a class="text-link" href="guide.html#space01">VIEW DETAILS　→</a>
+      </article>
+      <article class="space-card">
+        <div class="space-number">SPACE 02</div>
+        <h3>自分を知る</h3>
+        <p>複数のAI診断を通して、自分でも気づいていなかった性格や価値観を発見します。あなただけの「MY HUMAN ENCYCLOPEDIA」を作ります。</p>
+        <a class="text-link" href="guide.html#space02">VIEW DETAILS　→</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section archive">
+  <div class="section-inner">
+    <div class="section-label">HUMAN ARCHIVE</div>
+    <h2 class="section-title">人物アーカイブ</h2>
+    <p>一人ひとりの人生を、ひとつずつ。</p>
+    <div class="archive-box">
+      <div class="section-label">DOCUMENTARY COLLECTION</div>
+      <p>ここには、さまざまな人の人生の記録が並びます。</p>
+      <a class="text-link" href="archive.html">EXPLORE THE ARCHIVE　→</a>
+    </div>
+  </div>
+</section>
+
+<section class="section entry">
+  <div class="section-inner">
+    <div class="section-label">PARTICIPANT RECRUITMENT</div>
+    <h2>自分の人生を<br>映画化しませんか。</h2>
+    <p>特別な経験や功績は必要ありません。<br>あなたが歩んできた人生を、ひとつの物語として残しませんか。</p>
+    <a class="entry-link" href="entry.html">展示参加者募集について　→</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">
+    <span class="logo-jp">人間図鑑</span>
+    <span class="logo-en">THE HUMAN ENCYCLOPEDIA</span>
+  </div>
+  <small>© THE HUMAN ENCYCLOPEDIA</small>
+</footer>
+</body>
+</html>
