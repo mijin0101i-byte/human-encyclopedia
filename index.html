@@ -116,7 +116,68 @@ footer small { color: var(--muted); font-size: 10px; }
   .hero { min-height: 570px; }
   footer { flex-direction: column; align-items: flex-start; gap: 20px; }
 }
-</style>
+/* ===== 共通ナビゲーション・ボタンデザイン ===== */
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid #bbb;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+nav a:hover {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+a:focus-visible {
+  outline: 3px solid #777;
+  outline-offset: 4px;
+}
+
+.button,
+a.button,
+.back-home,
+a.detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 28px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+.button:hover,
+.back-home:hover,
+a.detail:hover {
+  background: #fff;
+  color: #222;
+}
+
+@media(max-width:700px) {
+  nav a {
+    min-height: 46px;
+    padding: 10px 13px;
+  }
+
+  .button,
+  .back-home,
+  a.detail {
+    min-height: 50px;
+    padding: 12px 22px;
+  }
+}</style>
 </head>
 <body>
 <header>
