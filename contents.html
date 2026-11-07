@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTENTS｜人間図鑑</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:#222;
+  background:#fff;
+  font-family:"Noto Serif JP",serif;
+  line-height:1.9;
+}
+a{color:inherit;text-decoration:none}
+
+header{
+  padding:22px 5%;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo{
+  font-size:21px;
+  letter-spacing:.12em;
+  white-space:nowrap;
+}
+.logo small{
+  display:block;
+  font-family:Montserrat,sans-serif;
+  font-size:9px;
+  letter-spacing:.2em;
+}
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  font-family:Montserrat,"Noto Serif JP",serif;
+  font-size:10px;
+  letter-spacing:.08em;
+}
+nav a:hover{opacity:.5}
+
+.hero{
+  padding:85px 20px 75px;
+  text-align:center;
+  background:#f5f5f3;
+}
+.en{
+  font:11px Montserrat,sans-serif;
+  letter-spacing:.25em;
+  color:#777;
+}
+h1{
+  font-size:clamp(38px,6vw,58px);
+  font-weight:400;
+  letter-spacing:.18em;
+  margin:15px 0;
+}
+.hero p{
+  font-size:14px;
+  letter-spacing:.08em;
+}
+
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:75px 25px 100px;
+}
+.intro{
+  text-align:center;
+  margin-bottom:45px;
+}
+.intro p{
+  font-size:14px;
+  color:#666;
+}
+
+.menu-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.menu-card{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:27px 25px;
+  border:1px solid #ccc;
+  background:#fff;
+  transition:.25s;
+  min-height:145px;
+}
+.menu-card:hover{
+  background:#222;
+  color:#fff;
+  border-color:#222;
+  transform:translateY(-3px);
+}
+.menu-number{
+  font:13px Montserrat,sans-serif;
+  letter-spacing:.12em;
+  color:#888;
+}
+.menu-card:hover .menu-number,
+.menu-card:hover .menu-description,
+.menu-card:hover .arrow{
+  color:#ddd;
+}
+.menu-text{flex:1}
+.menu-title{
+  font-size:19px;
+  letter-spacing:.08em;
+  margin:4px 0;
+}
+.menu-description{
+  font-size:12px;
+  color:#777;
+  line-height:1.8;
+}
+.arrow{
+  font:24px Montserrat,sans-serif;
+  color:#555;
+  transition:.2s;
+}
+.menu-card:hover .arrow{
+  transform:translateX(5px);
+}
+
+.back-home{
+  display:block;
+  width:fit-content;
+  margin:55px auto 0;
+  padding:15px 35px;
+  border:1px solid #222;
+  font-size:13px;
+  letter-spacing:.1em;
+  transition:.2s;
+}
+.back-home:hover{
+  background:#222;
+  color:#fff;
+}
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  border-top:1px solid #ddd;
+  font:10px Montserrat,sans-serif;
+  letter-spacing:.15em;
+  color:#888;
+}
+
+@media(max-width:700px){
+  header{display:block;text-align:center}
+  nav{justify-content:center;margin-top:18px;gap:12px}
+  .menu-list{grid-template-columns:1fr}
+  .menu-card{min-height:120px;padding:22px 18px}
+  main{padding:55px 18px 75px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a class="logo" href="index.html">
+人間図鑑
+<small>THE HUMAN ENCYCLOPEDIA</small>
+</a>
+<nav>
+<a href="index.html">HOME</a>
+<a href="contents.html">CONTENTS</a>
+<a href="about.html">ABOUT</a>
+<a href="guide.html">GUIDE</a>
+<a href="archive.html">ARCHIVE</a>
+<a href="entry.html">ENTRY</a>
+</nav>
+</header>
+
+<div class="hero">
+<div class="en">THE HUMAN ENCYCLOPEDIA</div>
+<h1>CONTENTS</h1>
+<p>人間図鑑を知るための、5つの入口。</p>
+</div>
+
+<main>
+<div class="intro">
+<div class="en">EXPLORE THE EXHIBITION</div>
+<p>気になる項目を選んで、ページを開いてください。</p>
+</div>
+
+<div class="menu-list">
+
+<a class="menu-card" href="index.html">
+<div class="menu-number">01</div>
+<div class="menu-text">
+<div class="menu-title">HOME</div>
+<div class="menu-description">人間図鑑の世界へ。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<a class="menu-card" href="about.html">
+<div class="menu-number">02</div>
+<div class="menu-text">
+<div class="menu-title">展覧会について</div>
+<div class="menu-description">企画の背景・コンセプト・開催概要</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<a class="menu-card" href="guide.html">
+<div class="menu-number">03</div>
+<div class="menu-text">
+<div class="menu-title">展示案内</div>
+<div class="menu-description">他人を知る。自分を知る。2つの展示空間。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<a class="menu-card" href="archive.html">
+<div class="menu-number">04</div>
+<div class="menu-text">
+<div class="menu-title">人物アーカイブ</div>
+<div class="menu-description">さまざまな人生の記録。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+<a class="menu-card" href="entry.html">
+<div class="menu-number">05</div>
+<div class="menu-text">
+<div class="menu-title">展示参加者募集</div>
+<div class="menu-description">あなたの人生を、ひとつの映画に。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+</div>
+
+<a class="back-home" href="index.html">← HOMEに戻る</a>
+
+</main>
+
+<footer>
+THE HUMAN ENCYCLOPEDIA © 2026
+</footer>
+
+</body>
+</html>
